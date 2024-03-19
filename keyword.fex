@@ -1,0 +1,119 @@
+-**************************************************
+-* Hold 5: assign the name for each word group
+-**************************************************
+-* DO NOT REMOVE THE LINES BELOW THEY ARE REQUIRED IN EVERY HOLD FOR THIS DATAMART FEX
+-SET &I = &I + 1;
+-* MODIFY THE LINE BELOW TO BE A DESCRIPTION OF THE INDEX FIELDS, FORMATS AND HOLD NAME, REMEMBER THE FINAL HOLD STARTS WITH AZ.
+-SET &HOLD_TBL&I.EVAL  = GET_HOLD_DATA('UITO_FULL_LIST_SUM',' ', 'XFOCUS', 'HTML',&FINAL_HOLD_FOLDER,&FEX_PREFIX,&I,&HOLD_STEP);
+
+DEFINE FILE &FEX_PREFIX|UITO_FULL_LIST
+WORD_GROUP/A52 = IF LOWER(SPLIT1) IN ('printings','print'	,'printer'	,'print'	,'printing'	,'reprint'	,'printers'	,'printer'	,'reprint'	,'printed'	,'prints') THEN 'Printer' ELSE
+				 IF LOWER(SPLIT1) IN ('connecting'	,'connection'	,'connected'	,'connect') THEN 'Connection' ELSE
+				 IF LOWER(SPLIT1) IN ('phone'	,'phones') THEN 'Phone' ELSE
+				IF LOWER(SPLIT1) IN ('accept','access'	) THEN 	'Accept'	 ELSE
+				IF LOWER(SPLIT1) IN ('account','accounts'	) THEN 	'Account'	 ELSE
+				IF LOWER(SPLIT1) IN ('activated','activation','active'	) THEN 	'Active'	 ELSE
+				IF LOWER(SPLIT1) IN ('applicants','application','apply'	) THEN 	'Applicants'	 ELSE
+				IF LOWER(SPLIT1) IN ('approve','approved'	) THEN 	'Approve'	 ELSE
+				IF LOWER(SPLIT1) IN ('assignation','assigning','assignment'	) THEN 	'Assignation'	 ELSE
+				IF LOWER(SPLIT1) IN ('audio','audit'	) THEN 	'Audio'	 ELSE
+				IF LOWER(SPLIT1) IN ('backed','backout','backup'	) THEN 	'Backup'	 ELSE
+				IF LOWER(SPLIT1) IN ('batteries','battery'	) THEN 	'Batteries'	 ELSE
+				IF LOWER(SPLIT1) IN ('boot','booting'	) THEN 	'Boot'	 ELSE
+				IF LOWER(SPLIT1) IN ('bva360','bva-360','bva360az','bva-360az','bva-360azkp-handheld'	) THEN 	'Bva360'	 ELSE
+				IF LOWER(SPLIT1) IN ('cable','cables'	) THEN 	'Cable'	 ELSE
+				IF LOWER(SPLIT1) IN ('call','called','calls','ghostcall'	) THEN 	'Call'	 ELSE
+				IF LOWER(SPLIT1) IN ('card','cards'	) THEN 	'Card'	 ELSE
+				IF LOWER(SPLIT1) IN ('cash','cashless'	) THEN 	'Cash'	 ELSE
+				IF LOWER(SPLIT1) IN ('certificate','certificates'	) THEN 	'Certificate'	 ELSE
+				IF LOWER(SPLIT1) IN ('changed','changes'	) THEN 	'Changed'	 ELSE
+				IF LOWER(SPLIT1) IN ('charge','charged','charger','charging','charles'	) THEN 	'Charge'	 ELSE
+				IF LOWER(SPLIT1) IN ('checkout','checks'	) THEN 	'Checkout'	 ELSE
+				IF LOWER(SPLIT1) IN ('comm','commercial'	) THEN 	'Comm'	 ELSE
+				IF LOWER(SPLIT1) IN ('computer','computers'	) THEN 	'Computer'	 ELSE
+				IF LOWER(SPLIT1) IN ('configuration','configure','configured'	) THEN 	'Configuration'	 ELSE
+				IF LOWER(SPLIT1) IN ('core','cores'	) THEN 	'Core'	 ELSE
+				IF LOWER(SPLIT1) IN ('ct40','ct40xp'	) THEN 	'Ct40'	 ELSE
+				IF LOWER(SPLIT1) IN ('cycle','cyclecount'	) THEN 	'Cycle'	 ELSE
+				IF LOWER(SPLIT1) IN ('damage','damaged'	) THEN 	'Damage'	 ELSE
+				IF LOWER(SPLIT1) IN ('ddc-2010','ddc-2010-black'	) THEN 	'Ddc-2010'	 ELSE
+				IF LOWER(SPLIT1) IN ('debit','debitpad'	) THEN 	'Debit'	 ELSE
+				IF LOWER(SPLIT1) IN ('device','devices'	) THEN 	'Device'	 ELSE
+				IF LOWER(SPLIT1) IN ('disconnected','disconnecting','discount'	) THEN 	'Disconnected'	 ELSE
+				IF LOWER(SPLIT1) IN ('display','displaying'	) THEN 	'Display'	 ELSE
+				IF LOWER(SPLIT1) IN ('driver','drivers'	) THEN 	'Driver'	 ELSE
+				IF LOWER(SPLIT1) IN ('drop','dropoff','dropped'	) THEN 	'Drop'	 ELSE
+				IF LOWER(SPLIT1) IN ('dxc-2011','dxc-2011-yellow'	) THEN 	'Dxc-2011'	 ELSE
+				IF LOWER(SPLIT1) IN ('fail','failure'	) THEN 	'Fail'	 ELSE
+				IF LOWER(SPLIT1) IN ('function','functions'	) THEN 	'Function'	 ELSE
+				IF LOWER(SPLIT1) IN ('generate','generating'	) THEN 	'Generate'	 ELSE
+				IF LOWER(SPLIT1) IN ('hold','holding'	) THEN 	'Hold'	 ELSE
+				IF LOWER(SPLIT1) IN ('install','installation','installed'	) THEN 	'Install'	 ELSE
+				IF LOWER(SPLIT1) IN ('invoice','invoices'	) THEN 	'Invoice'	 ELSE
+				IF LOWER(SPLIT1) IN ('item','items'	) THEN 	'Item'	 ELSE
+				IF LOWER(SPLIT1) IN ('jdt1','jdt-1'	) THEN 	'Jdt1'	 ELSE
+				IF LOWER(SPLIT1) IN ('label','labels'	) THEN 	'Label'	 ELSE
+				IF LOWER(SPLIT1) IN ('laser','laser1','laser2','lazer','laser3','lazer1','lazer2','laser3') THEN 	'Laser'	 ELSE
+				IF LOWER(SPLIT1) IN ('light','lights'	) THEN 	'Light'	 ELSE
+				IF LOWER(SPLIT1) IN ('link','links'	) THEN 	'Link'	 ELSE
+				IF LOWER(SPLIT1) IN ('loan','loaner'	) THEN 	'Loan'	 ELSE
+				IF LOWER(SPLIT1) IN ('local','locate','location'	) THEN 	'Local'	 ELSE
+				IF LOWER(SPLIT1) IN ('lock','locked'	) THEN 	'Lock'	 ELSE
+				IF LOWER(SPLIT1) IN ('management','manager'	) THEN 	'Management'	 ELSE
+				IF LOWER(SPLIT1) IN ('misdirect','misdirected'	) THEN 	'Misdirect'	 ELSE
+				IF LOWER(SPLIT1) IN ('monitor','monitors'	) THEN 	'Monitor'	 ELSE
+				IF LOWER(SPLIT1) IN ('page','pages'	) THEN 	'Page'	 ELSE
+				IF LOWER(SPLIT1) IN ('paid','paidout'	) THEN 	'Paid'	 ELSE
+				IF LOWER(SPLIT1) IN ('part','parts'	) THEN 	'Part'	 ELSE
+				IF LOWER(SPLIT1) IN ('pass','password'	) THEN 	'Pass'	 ELSE
+				IF LOWER(SPLIT1) IN ('payment','payments'	) THEN 	'Payment'	 ELSE
+				IF LOWER(SPLIT1) IN ('picked','pickup'	) THEN 	'Picked'	 ELSE
+				IF LOWER(SPLIT1) IN ('planogram','planograms'	) THEN 	'Planogram'	 ELSE
+				IF LOWER(SPLIT1) IN ('power','powering'	) THEN 	'Power'	 ELSE
+				IF LOWER(SPLIT1) IN ('print','printer','printers'	) THEN 	'Print'	 ELSE
+				IF LOWER(SPLIT1) IN ('procedure','process','processed'	) THEN 	'Procedure'	 ELSE
+				IF LOWER(SPLIT1) IN ('reboot','rebooted','rebooting'	) THEN 	'Reboot'	 ELSE
+				IF LOWER(SPLIT1) IN ('receipt','receipts','receive','receiving'	) THEN 	'Receipt'	 ELSE
+				IF LOWER(SPLIT1) IN ('recognized','recognizing'	) THEN 	'Recognized'	 ELSE
+				IF LOWER(SPLIT1) IN ('recon','reconcile','reconciled','reconciliation'	) THEN 	'Reconciliation'	 ELSE
+				IF LOWER(SPLIT1) IN ('reflected','reflecting','reflexis'	) THEN 	'Reflected'	 ELSE
+				IF LOWER(SPLIT1) IN ('register','registered','registers','registration'	) THEN 	'Register'	 ELSE
+				IF LOWER(SPLIT1) IN ('remove','removed'	) THEN 	'Remove'	 ELSE
+				IF LOWER(SPLIT1) IN ('replace','replaced','replacement'	) THEN 	'Replace'	 ELSE
+				IF LOWER(SPLIT1) IN ('report','reported','reporting','reports'	) THEN 	'Report'	 ELSE
+				IF LOWER(SPLIT1) IN ('requested','requests'	) THEN 	'Requested'	 ELSE
+				IF LOWER(SPLIT1) IN ('reroute','rerouted'	) THEN 	'Reroute'	 ELSE
+				IF LOWER(SPLIT1) IN ('restart','restarted'	) THEN 	'Restart'	 ELSE
+				IF LOWER(SPLIT1) IN ('return','returned','returns'	) THEN 	'Return'	 ELSE
+				IF LOWER(SPLIT1) IN ('reverse','revert'	) THEN 	'Reverse'	 ELSE
+				IF LOWER(SPLIT1) IN ('route','routes'	) THEN 	'Route'	 ELSE
+				IF LOWER(SPLIT1) IN ('scan','scanner','scanners','scanning'	) THEN 	'Scan'	 ELSE
+				IF LOWER(SPLIT1) IN ('seal','sealing'	) THEN 	'Seal'	 ELSE
+				IF LOWER(SPLIT1) IN ('server','service','services'	) THEN 	'Server'	 ELSE
+				IF LOWER(SPLIT1) IN ('ship','shipping'	) THEN 	'Ship'	 ELSE
+				IF LOWER(SPLIT1) IN ('stop','stopped'	) THEN 	'Stop'	 ELSE
+				IF LOWER(SPLIT1) IN ('task','tasks'	) THEN 	'Task'	 ELSE
+				IF LOWER(SPLIT1) IN ('team','teams'	) THEN 	'Team'	 ELSE
+				IF LOWER(SPLIT1) IN ('terminal','terminals'	) THEN 	'Terminal'	 ELSE
+				IF LOWER(SPLIT1) IN ('test','testing'	) THEN 	'Test'	 ELSE
+				IF LOWER(SPLIT1) IN ('ticket','tickets'	) THEN 	'Ticket'	 ELSE
+				IF LOWER(SPLIT1) IN ('touch','touchscreen'	) THEN 	'Touch'	 ELSE
+				IF LOWER(SPLIT1) IN ('transaction','transactions'	) THEN 	'Transaction'	 ELSE
+				IF LOWER(SPLIT1) IN ('transfer','transferred','transfers'	) THEN 	'Transfer'	 ELSE
+				IF LOWER(SPLIT1) IN ('update','updated','updating'	) THEN 	'Update'	 ELSE
+				IF LOWER(SPLIT1) IN ('vehicle','vehicles'	) THEN 	'Vehicle'	 ELSE
+				IF LOWER(SPLIT1) IN ('warranties','warranty'	) THEN 	'Warranties'	 ELSE
+				IF LOWER(SPLIT1) IN ('znet','z-net'	) THEN 	'Znet'	 ELSE
+				 SPLIT1;
+
+END
+TABLE FILE &FEX_PREFIX|UITO_FULL_LIST
+SUM
+	CNT.SPLIT1 AS 'WORD_CNT'
+	WORD_GROUP
+BY SPLIT1 AS 'WORD'
+&LIMITTABLE
+&LIMITFIELD
+&HOLD_TBL&I.EVAL
+END
+-RUN
